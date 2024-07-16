@@ -40,24 +40,18 @@ fi
 VALIDATE $? "Creating roboshop user"
 mkdir  -p /app &>> $LOG_FILE
 VALIDATE $? "Creating app directory"
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
-VALIDATE $? "Dowloading catalogue application"
+curl -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip
+VALIDATE $? "Dowloading cart application"
 cd /app &>> $LOG_FILE
-unzip -o /tmp/catalogue.zip &>> $LOG_FILE
-VALIDATE $? "Unzipping catalogue"
+unzip -o /tmp/cart.zip &>> $LOG_FILE
+VALIDATE $? "Unzipping cart"
 npm install  &>> $LOG_FILE
 VALIDATE $? "Installing dependencies"
 cp /home/centos/prasanna-daws-76s/catalogue.service /etc/systemd/system/catalogue.service &>> $LOG_FILE
-VALIDATE $? "copying catalogue sevice file"
+VALIDATE $? "copying cart sevice file"
 systemctl daemon-reload &>> $LOG_FILE
-VALIDATE $? "catalogue deomon reload"
-systemctl enable catalogue &>> $LOG_FILE
-VALIDATE $? "Enabling catalogue"
-systemctl start catalogue &>> $LOG_FILE
-VALIDATE $? "Start catalogue"
-cp /home/centos/prasanna-daws-76s/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOG_FILE
-VALIDATE $? "copying mongo.repo"
-dnf install mongodb-org-shell -y &>> $LOG_FILE
-VALIDATE $? "Installing mongodb client"
-mongo --host 172.31.91.200 </app/schema/catalogue.js
-VALIDATE $? "loading catalogue data into mongodb"
+VALIDATE $? "cart deomon reload"
+systemctl enable cart &>> $LOG_FILE
+VALIDATE $? "Enabling cart"
+systemctl start cart &>> $LOG_FILE
+VALIDATE $? "Start cart"

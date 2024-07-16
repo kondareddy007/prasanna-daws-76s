@@ -47,7 +47,7 @@ unzip /tmp/user.zip &>> $LOG_FILE
 VALIDATE $? "Unzipping user"
 npm install  &>> $LOG_FILE
 VALIDATE $? "Installing dependencies"
-cp /home/centos/prasanna-daws-76s/ user.service /etc/systemd/system/catalogue.service &>> $LOG_FILE
+cp /home/centos/prasanna-daws-76s/user.service /etc/systemd/system/catalogue.service &>> $LOG_FILE
 VALIDATE $? "copying user sevice file"
 systemctl daemon-reload &>> $LOG_FILE
 VALIDATE $? "user deomon reload"
@@ -55,9 +55,9 @@ systemctl enable user &>> $LOG_FILE
 VALIDATE $? "Enabling user"
 systemctl start user &>> $LOG_FILE
 VALIDATE $? "Starting user"
-cp /home/centos/prasanna-daws-76s/mongo.repo/etc/yum.repos.d/mongo.repo &>> $LOG_FILE
+cp /home/centos/prasanna-daws-76s/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOG_FILE
 VALIDATE $? "copying mongo repo"
 dnf install mongodb-org-shell -y &>> $LOG_FILE
 VALIDATE $? "Installing mongodb client"
 mongo --host 172.31.91.200 </app/schema/catalogue.js
-VALIDATE $? "loading catalogue data into mongodb"
+VALIDATE $? "loading user data into mongodb"

@@ -42,12 +42,12 @@ mkdir  -p /app &>> $LOG_FILE
 VALIDATE $? "Creating app directory"
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
 VALIDATE $? "Dowloading catalogue application"
-cd /app 
+cd /app &>> $LOG_FILE
 unzip /tmp/catalogue.zip &>> $LOG_FILE
 VALIDATE $? "Unzipping catalogue"
 npm install  &>> $LOG_FILE
 VALIDATE $? "Installing dependencies"
-cp /home/centos/roboshop-shell/ catalogue.service /etc/systemd/system/catalogue.service &>> $LOG_FILE
+cp /home/centos/prasanna-daws-76s/ catalogue.service /etc/systemd/system/catalogue.service &>> $LOG_FILE
 VALIDATE $? "copying catalogue sevice file"
 systemctl daemon-reload &>> $LOG_FILE
 VALIDATE $? "catalogue deomon reload"

@@ -38,7 +38,7 @@ else
 echo -e "Roboshop user is alredy exit $Y SKIPPING $N"
 fi
 VALIDATE $? "Creating roboshop user"
-mkdir /app &>> $LOG_FILE
+mkdir /app 
 VALIDATE $? "Creating app directory"
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
 VALIDATE $? "Dowloading catalogue application"

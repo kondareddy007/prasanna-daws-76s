@@ -1,7 +1,5 @@
 #!/bin/bash
 FILE=/etc/passwd
-username=prasanna
-user_id=550
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"

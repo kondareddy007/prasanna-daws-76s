@@ -13,3 +13,4 @@ fi
 done <<<$DISK_USAGE
 echo -e "Message:$Message"
 echo "$Message"|mail -s "High disk usage"info@joindevops.com
+sh mail.sh"Devops Team high disk usage""$Message"info@joindenvops.com"ALERT high disk usage

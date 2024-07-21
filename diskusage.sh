@@ -12,3 +12,4 @@ Message +="High disk usage on $partition:$Usage<br>"
 fi
 done <<<$DISK_USAGE
 echo -e "Message:$Message"
+echo "$Message"|mail -s "High disk usage"info@joindevops.com

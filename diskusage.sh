@@ -11,4 +11,4 @@ then
 Message +="High disk usage on $partition:$Usage<br>"
 fi
 done <<<$DISK_USAGE
-echo -e "Message:$Message
+echo -e "Message:$Message"

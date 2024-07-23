@@ -15,8 +15,8 @@ do
     case $opt in
         n)NAME="$OPTARGS";;
         \?)echo "invalid options:"$OPTARGS"" >&2 USAGE exit
-         w)WISHES="$OPTARGS";;
-        h)USAGE; exit;;
+        w)WISHES="$OPTARGS";;
+        h|*)USAGE; exit;;
         :)USAGE; exit;;
     esac    
 done

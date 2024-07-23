@@ -21,7 +21,8 @@ do
    
     esac    
 done
-if [ -z "$NAME" ]||[ -z "$WISHES" ];then
+#if [ -z "$NAME" ]||[ -z "$WISHES" ];then
+if [ -z "$NAME" ]; then #wishes is opt
     echo "ERROR:both -n and -w are mantary options"
     USAGE
     exit 1

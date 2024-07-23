@@ -21,9 +21,9 @@ do
    
     esac    
 done
-if [-z "$NAME"]||[-z "$WISHES"];then
+if [ -z "$NAME" ]||[ -z "$WISHES" ];then
     echo "ERROR:both -n and -w are mantary options"
     USAGE
     exit 1
 fi
-echo "Hello $NAME. $WISHES. I have learning shell script
+echo "Hello $NAME. $WISHES. I have learning shell script"

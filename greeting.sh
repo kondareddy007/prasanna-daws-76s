@@ -14,10 +14,11 @@ while getopts ":n:w:h" opt;
 do
     case $opt in
         n)NAME="$OPTARGS";;
-        \?)echo "invalid options:"$OPTARGS"" >&2 USAGE exit
         w)WISHES="$OPTARGS";;
-        h|*)USAGE; exit;;
+       \?)echo "invalid options: -"$OPTARGS"" >&2; USAGE; exit;;
         :)USAGE; exit;;
+        h)USAGE; exit;;
+   
     esac    
 done
 if [-z "$NAME"]||[-z "$WISHES"];then
@@ -25,4 +26,4 @@ if [-z "$NAME"]||[-z "$WISHES"];then
     USAGE
     exit 1
 fi
-echo "Hello,$NAME, $WISHES.I have learning shell script
+echo "Hello $NAME. $WISHES. I have learning shell script

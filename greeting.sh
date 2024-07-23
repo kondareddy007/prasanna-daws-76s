@@ -2,7 +2,7 @@
 PERSON=$1
 echo "heloo $PERSON:good morning. we am learning shell script"
 NAME=""
-WISHES=""
+WISHES="Good morning"
 USAGE(){
     echo "USAGE::$(basename $0) -n <name> -w <wishes>"
     echo "options::"
@@ -10,7 +10,7 @@ USAGE(){
     echo "-w, specify the wishes,ex,good morning"
     echo "-h, display help and exit"
 }
-while getopts "n:w:h" opt;
+while getopts ":n:w:h" opt;
 do
     case $opt in
         n)NAME="$OPTARGS";;
@@ -20,3 +20,9 @@ do
         :)USAGE; exit;;
     esac    
 done
+if [-z "$NAME"]||[-z "$WISHES"];then
+    echo "ERROR:both -n and -w are mantary options"
+    USAGE
+    exit 1
+fi
+echo "Hello,$NAME, $WISHES.I have learning shell script
